@@ -82,3 +82,12 @@ window.addEventListener("scroll", () => {
     });
   });
 });
+//=================== Scroll - Button ====>
+
+let load = document.querySelector(".load") as HTMLElement;
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    load.style.display = "none";
+  }, 5000);
+});
+//=================== Load - Animations ====>

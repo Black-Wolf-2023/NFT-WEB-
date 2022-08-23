@@ -22,6 +22,8 @@ $main-font: 14px;
 }
 img {
   width: 100%;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 html {
   background-color: $dark-color;
@@ -318,6 +320,25 @@ a,
   to {
     transform: translateY(0px) scale(1);
     opacity: 1;
+  }
+}
+.load {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+  background-color: $dark-color;
+  @include flex(center, center, row, 0px);
+  .img {
+    width: 500px;
+    height: 500px;
+    padding: 50px;
+    img {
+      border-radius: 100%;
+      cursor: pointer;
+    }
   }
 }
 //====================== Static Component-->
