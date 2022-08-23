@@ -1,0 +1,72 @@
+@use "./constant" as *;
+@use "./mixien" as *;
+
+#info {
+  margin: 70px;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  gap: 30px;
+  @include media(mdsmem) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 0;
+  }
+  @include media(sm) {
+    > .img {
+      justify-self: flex-start;
+      padding-left: 50px;
+    }
+  }
+  .information {
+    @include flex(flex-start, flex-start, column, 0);
+    gap: 40px;
+    width: 80%;
+    h1 {
+      color: $white-color;
+      font-size: 3rem;
+    }
+    .price {
+      @include flex(flex-start, space-between, row, 0);
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .owner-creater {
+      margin: 20px 0;
+      background-color: $card-color;
+      @include flex(flex-start, space-between, row, 20px);
+      flex-wrap: wrap;
+      gap: 40px;
+      border-radius: 10px;
+      width: 100%;
+      .owner,
+      .creator {
+        @include flex(flex-start, flex-start, row, 0);
+        gap: 20px;
+        .img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    .btns {
+      @include flex(flex-start, space-between, row, 0px);
+      flex-wrap: wrap;
+      width: 100%;
+      button {
+        display: block !important;
+        @include media(em) {
+          padding: 10px 15px;
+        }
+      }
+      :nth-child(2) {
+        background-color: $main-color;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+.content-2 {
+  justify-items: center;
+}

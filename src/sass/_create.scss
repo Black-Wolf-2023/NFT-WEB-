@@ -1,0 +1,45 @@
+@use "./constant" as *;
+@use "./mixien" as *;
+#create {
+  .create-content {
+    background-image: linear-gradient(360deg, $hot-color, $card-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    padding: 50px;
+    text-align: center;
+    margin: 0 auto;
+    gap: 30px;
+    border-radius: 10px;
+    border: 2px solid rgba($color: $main-color, $alpha: 0.6);
+    @include media(em) {
+      padding: 40px 20px;
+    }
+    button {
+      background-color: $main-color;
+      &:hover {
+        background-color: transparent;
+      }
+      @include media(em) {
+        padding: 10px 20px;
+      }
+    }
+    p {
+      display: inline-block;
+      width: 70%;
+      line-height: 30px;
+      @include media(em) {
+        width: 100%;
+      }
+    }
+    h1 {
+      color: $white-color;
+      font-size: 2.3rem;
+      @include media(em) {
+        font-size: 1.5rem !important;
+      }
+    }
+  }
+}

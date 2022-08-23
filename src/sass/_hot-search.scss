@@ -1,0 +1,54 @@
+@use "./constant" as *;
+@use "./mixien" as *;
+.search {
+  .filter_parent {
+    @include flex(center, flex-start, row, 0px);
+    gap: 100px;
+    @include media(mdsmem) {
+      @include flex(flex-start, flex-start, column-reverse, 0px);
+      gap: 50px;
+    }
+    select {
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: $hot-color;
+      border: none;
+      outline: none;
+      font-weight: 500;
+      margin-left: 20px;
+      color: $white-color;
+    }
+  }
+  .header-title {
+    @include flex(center, center, column, 0px);
+    width: 100%;
+    gap: 50px;
+    .inp {
+      position: relative;
+      width: 70%;
+      .img {
+        position: absolute;
+        right: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $main-color;
+        width: 30px;
+        height: 30px;
+        @include flex(center, center, column, 0px);
+        border-radius: 50%;
+      }
+      input {
+        padding: 10px 40px;
+        border-radius: 5px;
+        width: 100%;
+        outline: 0;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: $main-color;
+        border: 0;
+        box-shadow: inset 0 0 10px $main-color;
+      }
+    }
+  }
+}

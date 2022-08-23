@@ -1,0 +1,67 @@
+@use "./constant" as *;
+@use "./mixien" as *;
+footer {
+  padding-bottom: 70px;
+  .list-cont {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    @include media(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: flex-start;
+
+      gap: 50px;
+      :nth-child(1) {
+        grid-row: 2/2;
+      }
+    }
+    @include media(em) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: flex-start;
+      gap: 50px;
+      :nth-child(1) {
+        grid-row: 4/4;
+      }
+    }
+    ul {
+      @include flex(flex-start, flex-start, column, 0);
+      gap: 20px;
+      li {
+        h2 {
+          color: $white-color;
+        }
+        a {
+          font-size: 14px;
+          color: $light-color;
+          font-weight: 500;
+          &:hover {
+            color: $main-color;
+          }
+        }
+        .links {
+          @include flex(center, center, row, 0);
+          gap: 30px;
+          a {
+            @include flex(center, center, row, 0);
+            background-color: $white-color;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            &:hover {
+              background-color: $main-color;
+            }
+          }
+          :nth-child(2) {
+            background-color: $main-color;
+            &:hover {
+              background-color: $hot-color;
+            }
+          }
+        }
+      }
+      .copy-right {
+        margin-top: 50px;
+      }
+    }
+  }
+}

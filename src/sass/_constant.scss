@@ -1,0 +1,323 @@
+@use "./mixien" as *;
+//============== Variables--->
+$main-color: #1e50ff;
+$dark-color: #02050e;
+$light-color: #adb9c7;
+$white-color: #fff;
+$card-color: #272d37;
+$hot-color: #0f182e;
+$main-font: 14px;
+//============== Variables--->
+
+//====================== Rest-->
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Chillax-Variable";
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+img {
+  width: 100%;
+}
+html {
+  background-color: $dark-color;
+}
+//====================== Rest-->
+
+//====================== Container-->
+
+.container {
+  margin: 0 auto;
+}
+
+@include media(em) {
+  .container {
+    width: 100%;
+    padding: 0 30px;
+  }
+}
+
+@include media(sm) {
+  .container {
+    width: 750px;
+    padding: 0 30px;
+  }
+}
+
+@include media(md) {
+  .container {
+    width: 970px;
+  }
+}
+
+@include media(xl) {
+  .container {
+    width: 1170px;
+  }
+}
+//====================== Container-->
+
+//====================== Static Component-->
+p {
+  font-size: 14px;
+  color: $light-color;
+  font-weight: 500;
+}
+h3 {
+  font-weight: 600;
+  color: $white-color;
+}
+span {
+  color: $white-color;
+  font-weight: 600;
+}
+button,
+div,
+a,
+ul,
+span,
+img,
+::after,
+::before {
+  transition: all ease-out 0.3s;
+}
+button,
+a,
+.toggle {
+  &:active {
+    transform: scale(0.6);
+  }
+}
+@include media(mdsmem) {
+  h1 {
+    font-size: 2.2rem !important;
+  }
+}
+.active {
+  color: $white-color;
+  position: relative;
+  &:hover {
+    color: $white-color !important;
+  }
+}
+.nav-btn {
+  background-color: transparent;
+  color: $white-color;
+  font-weight: 500;
+  border: 2px solid $main-color;
+  padding: 13px 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: inset 0 0 10px $main-color;
+  &:hover {
+    background-color: $main-color;
+  }
+  @include media(mdsmem) {
+    & {
+      display: none;
+    }
+  }
+}
+.toggle {
+  width: 30px;
+  @include flex(flex-end, flex-end, column, 0px);
+  cursor: pointer;
+  display: none;
+  &:hover {
+    span {
+      width: 100%;
+    }
+  }
+  span {
+    width: 100%;
+    height: 2px;
+    background-color: $white-color;
+    display: block;
+    margin: 2.5px 0;
+  }
+  :nth-child(2) {
+    width: 60%;
+  }
+  :last-child {
+    width: 90%;
+  }
+  @include media(mdsmem) {
+    & {
+      display: flex;
+    }
+  }
+}
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 80%;
+  height: 2px;
+  border-radius: 30px;
+  background-color: $main-color;
+}
+.shower {
+  left: 0 !important;
+}
+.activer-nav {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  left: 0;
+  width: 100%;
+  background-color: $hot-color;
+  padding: 0 30px;
+  height: 75px;
+  animation: act 1s ease-in-out alternate;
+}
+@keyframes act {
+  from {
+    top: -10%;
+  }
+  to {
+    top: 0;
+  }
+}
+.header-title {
+  @include flex(center, space-between, row, 0);
+  h1 {
+    font-size: 2.5rem;
+    color: $white-color;
+    @include media(mdsmem) {
+      font-size: 1.7rem !important;
+    }
+  }
+  @include media(mdsmem) {
+    gap: 11px;
+  }
+  button {
+    display: block !important;
+    @include media(em) {
+      padding: 10px 25px !important;
+    }
+  }
+  margin-top: 130px;
+  margin-bottom: 50px;
+}
+.disapled {
+  color: $light-color;
+}
+.content {
+  @include flex(flex-start, space-between, row, 0);
+  @include media(mdsmem) {
+    @include flex(flex-start, space-between, column, 0);
+  }
+}
+.card {
+  cursor: pointer;
+  background-color: #272d37;
+  width: 350px;
+  border-radius: 20px;
+  @include flex(center, center, column, 20px);
+  box-shadow: inset -50px 0px 100px 10px rgba($color: $main-color, $alpha: 0.5);
+  animation: card-shadow 2s ease-out infinite alternate;
+  .bg-img {
+    width: 95%;
+    height: 300px;
+    position: relative;
+    .hot {
+      @include flex(center, center, row, 0);
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      width: 55%;
+      transform: translateX(-50%);
+      gap: 5px;
+      background-color: $hot-color;
+      padding: 3px 8px;
+      border-radius: 20px;
+      .img {
+        width: 20px;
+        height: 20px;
+      }
+      span {
+        font-size: calc($main-font - 4px);
+      }
+    }
+  }
+  .title {
+    @include flex(center, space-evenly, row, 0);
+    width: 100%;
+    gap: 30px;
+    margin: 20px 0;
+    span {
+      font-size: calc($main-font);
+    }
+    :last-child {
+      background-color: $main-color;
+      padding: 3px 10px;
+      border-radius: 5px;
+    }
+  }
+  .user {
+    @include flex(center, space-between, row, 0px);
+    gap: 70px;
+    .user-img {
+      @include flex(center, flex-start, row, 0px);
+      gap: 10px;
+      .bg-user {
+        width: 40px;
+        height: 40px;
+        background-image: url("../../assets/Main/card-user-1.png");
+        background-size: contain;
+        border-radius: 100%;
+      }
+    }
+  }
+  @include media(em) {
+    transform: scale(0.8);
+  }
+}
+@keyframes card-shadow {
+  from {
+    box-shadow: inset -50px 0px 100px 10px rgba($color: $main-color, $alpha: 0.5);
+  }
+  to {
+    box-shadow: inset 100px 0px 100px 10px
+      rgba($color: $white-color, $alpha: 0.3);
+  }
+}
+.arrow {
+  background-color: $white-color;
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  z-index: 1000;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  @include flex(center, center, column, 0);
+  img {
+    animation: act-arrow 1s ease-out infinite;
+    position: absolute;
+  }
+  :nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  :nth-child(3) {
+    animation-delay: 0.8s;
+  }
+}
+@keyframes act-arrow {
+  from {
+    transform: translateY(30px) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+//====================== Static Component-->
