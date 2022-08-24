@@ -52,7 +52,7 @@ let filter_clicker = {
 };
 filter_clicker.activer();
 //=================== Filter-Opject ====>
-let links = document.querySelectorAll(".hot-cards .card .bg-img");
+let links = document.querySelectorAll(".hot-cards .card");
 links.forEach((e) => {
     e.addEventListener("click", () => {
         if (location.href.includes("index.html")) {
@@ -83,9 +83,11 @@ window.addEventListener("scroll", () => {
 });
 //=================== Scroll - Button ====>
 let load = document.querySelector(".load");
+let body = document.querySelector("body");
 window.addEventListener("load", () => {
     setTimeout(() => {
         load.style.display = "none";
+        body.style.overflow = "auto";
     }, 5000);
 });
 //=================== Load - Animations ====>
